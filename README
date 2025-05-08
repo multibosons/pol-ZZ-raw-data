@@ -26,11 +26,12 @@
    |__> LOmatched/: LO (qq, tree-level) matched to parton shower
    |__> LOmerged/: LO (qq, tree-level) merged (+ 0,1,2 jets at LO) with parton shower
    |__> NLOQCDmatched/: NLO QCD (excludes LO gg loop-induced) matched to parton shower
-   |__> NLOQCDmerged/: NLO QCD (excludes LO gg loop-induced) merged (+ 0,1 jets at NLO, + 0,1,2 jets at LO) with parton shower
+   |__> NLOQCDmerged/: NLO QCD (excludes LO gg loop-induced) merged (+ 0,1 jets at NLO, + 2,3 jets at LO) with parton shower
 
- The parton-shower effects (Pythia 8 for all predictions, although with slightly different settings) can be:
+ The parton-shower effects (via matching or merging) can come:
       > pure QCD PS (dubbed "qcd")
-      > full event simulation, including  including QCD PS, QED PS, hadronisation and MPIs (dubbed "had")
+      > full event simulation, including QCD PS, QED PS, hadronisation and MPIs (dubbed "had")
+
 
  In each subfolder, predictions from different MC codes/generators are present in Yoda format for various unpolarised/polarised signals.
  The Yoda files are dubbed "<MC-code short name>_<accuracy>_<polarisation state>.yoda".
