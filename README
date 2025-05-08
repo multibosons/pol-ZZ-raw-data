@@ -1,0 +1,94 @@
+
+ DESCRIPTION
+ -----------
+ 
+ This repository contains the numerical results in Yoda format used for the COMETA project for doubly polarised ZZ production at the LHC@13TeV in the 4-lepton decay channel:
+ 
+      p p -> Z (e+ e-) Z (mu+ mu-) + X
+ 
+ For the setup, details of the calculations, and phenomenological results we refer to Ref. [1].
+ For additional details on various calculations please refer to Refs. [2-19].
+
+ The repository is organised as follows:
+ 
+ FO/: fixed-order results
+   |
+   |__> LO/:      LO (qqbar, tree-level)
+   |__> NLOEW/:   LO (qqbar, tree-level) + NLO electroweak correction (qqbar, photon-q, photon-qbar)
+   |__> NLOQCD/:  LO (qqbar, tree-level) + NLO QCD correction (qqbar, gq, gqbar)
+   |__> NNLOQCD/: LO (qqbar, tree-level) + NLO QCD correction (qqbar, gq, gqbar) + NNLO QCD correction (qqbar, gq, gqbar, gg), excluding LO gg (loop-induced)
+   |__> GG/:      LO (gg, loop-induced)
+ 
+ PS/: parton-shower (PS) matched and merged results
+   | 
+   |__> GGmatched/: LO (gg, loop-induced) matched to parton shower
+   |__> GGmerged/: LO (gg, loop-induced) merged (+ 0,1 jets) with parton shower
+   |__> LOmatched/: LO (qq, tree-level) matched to parton shower
+   |__> LOmerged/: LO (qq, tree-level) merged (+ 0,1,2 jets at LO) with parton shower
+   |__> NLOQCDmatched/: NLO QCD (excludes LO gg loop-induced) matched to parton shower
+   |__> NLOQCDmerged/: NLO QCD (excludes LO gg loop-induced) merged (+ 0,1 jets at NLO, + 0,1,2 jets at LO) with parton shower
+
+ The parton-shower effects (Pythia 8 for all predictions, although with slightly different settings) can be:
+      > pure QCD PS (dubbed "qcd")
+      > full event simulation, including  including QCD PS, QED PS, hadronisation and MPIs (dubbed "had")
+
+ In each subfolder, predictions from different MC codes/generators are present in Yoda format for various unpolarised/polarised signals.
+ The Yoda files are dubbed "<MC-code short name>_<accuracy>_<polarisation state>.yoda".
+ The <polarisation state> takes the following names:
+ 
+      ll (doubly longitudinal)
+      lt (longitudinal - transverse)
+      tl (transverse - longitudinal)
+      tt (transverse - transverse)
+      uu (unpolarised)
+      ff (full off-shell)
+ 
+ For polarised (ll, lt, tl, tt) and unpolarised (uu) states, double-Z-resonant diagrams are selected and treated in an on-shell approximation (DPA, NWA) or by simple diagram removal and kinematic cuts (BW).
+ For the full off-shell case (ff), all diagrams at a given perturbative order [p p -> e+ e- mu+ mu- + X] are included, including non-resonant effects and complete spin correlations.
+ For mixed states (lt, tl), the first letter refers to the Z boson decaying to e+ e-, the second one to the Z boson decaying to mu+ mu-.
+  
+ Remark #1: for POWHEG results LHE-level (dubbed "lhe") results at LO/NLOQCD are provided as well (including the hardest real QCD radiation generated according to the POWHEG Sudakov form factor).
+ Remark #2: for NLOQCD Sherpa results, the NLO accuracy is exact for the full off-shell (ff) and unpolarised signals (uu), while it is approximate (nLOQCD) for polarised states (ll, lt, tl, tt).
+
+
+ CITATIONS
+ ---------
+
+ If you use any of the results in this repository, please cite
+  [1] arXiv:2505.#####.
+
+ If you use MOCANLO results please cite:
+  [2] A. Denner and G. Pelliccioli, Polarized electroweak bosons in W+W- production at the LHC including NLO QCD effects, JHEP 09 (2020) 164, [arXiv:2006.14867].
+  [3] A. Denner and G. Pelliccioli, NLO QCD predictions for doubly-polarized WZ production at the LHC, Phys. Lett. B 814 (2021) 136107, [arXiv:2010.07149]
+  [4] A. Denner and G. Pelliccioli, NLO EW and QCD corrections to polarized ZZ production in the four-charged-lepton channel at the LHC, JHEP 10 (2021) 097, [arXiv:2107.06579].
+  [5] A. Denner, C. Haitz, and G. Pelliccioli, NLO QCD corrections to polarized diboson production in semileptonic final states, Phys. Rev. D 107 (2023) 053004, [arXiv:2211.09040].
+  [6] A. Denner, C. Haitz, and G. Pelliccioli, NLO EW corrections to polarised W+W- production and decay at the LHC, Phys. Lett. B 850 (2024) 138539, [arXiv:2311.16031].
+  [7] A. Denner, C. Haitz, and G. Pelliccioli, NLO EW and QCD corrections to polarised same-sign WW scattering at the LHC, JHEP 11 (2024) 115, [arXiv:2409.03620].
+  [8] M. Grossi, G. Pelliccioli, and A. Vicini, From angular coefficients to quantum observables: a phenomenological appraisal in di-boson systems, JHEP 12 (2024) 120, [arXiv:2409.16731].
+
+ If you use STRIPPER results please cite:
+  [9] R. Poncelet and A. Popescu, NNLO QCD study of polarised W+W- production at the LHC, JHEP07 (2021) 023, [arXiv:2102.13583].
+  [10] M. Pellen, R. Poncelet, and A. Popescu, Polarised W+j production at the LHC: a study at NNLO QCD accuracy, JHEP 02 (2022) 160, [arXiv:2109.14336].
+
+ If you use MULBOS results please cite:
+  [11] D. N. Le and J. Baglio, Doubly-polarized WZ hadronic cross sections at NLO QCD + EW accuracy, Eur. Phys. J. C 82 (2022) 917, [arXiv:2203.01470].
+  [12] D. N. Le, J. Baglio, and T. N. Dao, Doubly-polarized WZ hadronic production at NLO QCD+EW: calculation method and further results, Eur. Phys. J. C 82 (2022) 1103, [arXiv:2208.09232].
+  [13] T. N. Dao and D. N. Le, Enhancing the doubly-longitudinal polarization in WZ production at the LHC, Commun. in Phys. 33 (2023) 223, [arXiv:2302.03324].
+  [14] T. N. Dao and D. N. Le, NLO electroweak corrections to doubly-polarized W+W- production at the LHC, Eur. Phys. J. C 84 (2024) 244, [arXiv:2311.17027].
+  [15] T. N. Dao and D. N. Le, Polarized W+W- pairs at the LHC: Effects from bottom-quark induced processes at NLO QCD + EW, Eur. Phys. J. C 85 (2025) 108, [arXiv:2409.06396].
+
+ If you use BBMC results please cite:
+  [5] A. Denner, C. Haitz, and G. Pelliccioli, NLO QCD corrections to polarized diboson production in semileptonic final states, Phys. Rev. D 107 (2023) 053004, [arXiv:2211.09040].
+  [6] A. Denner, C. Haitz, and G. Pelliccioli, NLO EW corrections to polarised W+W- production and decay at the LHC, Phys. Lett. B 850 (2024) 138539, [arXiv:2311.16031].
+  [7] A. Denner, C. Haitz, and G. Pelliccioli, NLO EW and QCD corrections to polarised same-sign WW scattering at the LHC, JHEP 11 (2024) 115, [arXiv:2409.03620].
+  
+ If you use SHERPA results please cite:
+  [16] M. Hoppe, M. Schoenherr, and F. Siegert, Polarised cross sections for vector boson production with Sherpa, JHEP 04 (2024) 001, [arXiv:2310.14803].
+
+ If you use POWHEG results please cite:
+  [17] G. Pelliccioli and G. Zanderighi, Polarised-boson pairs at the LHC with NLOPS accuracy, Eur. Phys. J. C 84 (2024) 16, [arXiv:2311.05220].
+
+ If you use MADGRAPH results please cite:
+  [18] D. Buarque Franzosi, O. Mattelaer, R. Ruiz, and S. Shil, Automated predictions from polarized matrix elements, JHEP 04 (2020) 082, [arXiv:1912.01725]
+  [19] M. Javurkova, R. Ruiz, R. Coelho Lopes de Sa, and J. Sandesara, Polarized ZZ pairs in gluon fusion and vector boson fusion at the LHC, Phys. Lett. B 855 (2024) 138787, [arXiv:2401.17365].
+
