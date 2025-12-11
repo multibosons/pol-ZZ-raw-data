@@ -56,7 +56,7 @@
  ---------
 
  If you use any of the results in this repository, please cite
-  [1] arXiv:2505.#####.
+  [1] arXiv:2505.09686 
 
  If you use MOCANLO results please cite:
   [2] A. Denner and G. Pelliccioli, Polarized electroweak bosons in W+W- production at the LHC including NLO QCD effects, JHEP 09 (2020) 164, [arXiv:2006.14867].
@@ -93,3 +93,4 @@
   [18] D. Buarque Franzosi, O. Mattelaer, R. Ruiz, and S. Shil, Automated predictions from polarized matrix elements, JHEP 04 (2020) 082, [arXiv:1912.01725]
   [19] M. Javurkova, R. Ruiz, R. Coelho Lopes de Sa, and J. Sandesara, Polarized ZZ pairs in gluon fusion and vector boson fusion at the LHC, Phys. Lett. B 855 (2024) 138787, [arXiv:2401.17365].
 
+ This project was developed within the framework of the COST Action COMETA CA22130.
